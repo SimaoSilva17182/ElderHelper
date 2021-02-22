@@ -39,7 +39,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 
 
-public class AddContact extends AppCompatActivity {
+public class AddContactActivity extends AppCompatActivity {
 
     private CheckBox addToEC;
     private Button confirm;
@@ -69,12 +69,12 @@ public class AddContact extends AppCompatActivity {
         addToEC = findViewById(R.id.addToEmergencyCall);
 
 
-        if (ContextCompat.checkSelfPermission(AddContact.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(AddContact.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_CODE);
+        if (ContextCompat.checkSelfPermission(AddContactActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(AddContactActivity.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_CODE);
         }
 
-        if (ContextCompat.checkSelfPermission(AddContact.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(AddContact.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_GALLERY_CODE);
+        if (ContextCompat.checkSelfPermission(AddContactActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(AddContactActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_GALLERY_CODE);
         }
 
         confirm.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +99,7 @@ public class AddContact extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddContact.this, AddContact.class);
+                Intent intent = new Intent(AddContactActivity.this, AddContactActivity.class);
                 startActivity(intent);
             }
         });
@@ -112,7 +112,7 @@ public class AddContact extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddContact.this); // this will create a pop-up dialog box that will ask the user to choose the options above
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddContactActivity.this); // this will create a pop-up dialog box that will ask the user to choose the options above
                 builder.setTitle("Add Photo");
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
@@ -220,5 +220,4 @@ public class AddContact extends AppCompatActivity {
                 });
             }
         }
-
 }

@@ -14,11 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ElderHelper">
-        <activity android:name=".activities.AddMeds"></activity>
-        <activity android:name=".activities.AddContact" />
-        <activity android:name=".activities.Medication" />
-        <activity android:name=".activities.EmergencyCall" />
-        <activity android:name=".activities.Contacts" />
+        <activity android:name=".activities.OrderActivity"></activity>
+        <activity android:name=".activities.AddMedsActivity" />
+        <activity android:name=".activities.AddContactActivity" />
+        <activity android:name=".activities.MedicationActivity" />
+        <activity android:name=".activities.EmergencyCallActivity" />
+        <activity android:name=".activities.ContactsActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

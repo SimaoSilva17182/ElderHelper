@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         contacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Contacts.class);
+                Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         medication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Medication.class);
+                Intent intent = new Intent(MainActivity.this, MedicationActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         emergency_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EmergencyCall.class);
+                Intent intent = new Intent(MainActivity.this, EmergencyCallActivity.class);
                 startActivity(intent);
             }
         });

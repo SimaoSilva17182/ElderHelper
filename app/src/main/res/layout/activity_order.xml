@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.EmergencyCallActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/EmergencyContact"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="198dp" />
+    tools:context=".activities.OrderActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

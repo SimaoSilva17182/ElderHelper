@@ -14,12 +14,13 @@ import com.example.elderhelper.R;
 import com.example.elderhelper.adapter.ContactAdapter;
 import com.example.elderhelper.adapter.EmergencyCallAdapter;
 import com.example.elderhelper.db.ContactDB;
+import com.example.elderhelper.db.ContactDao;
 import com.example.elderhelper.model.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmergencyCall extends AppCompatActivity {
+public class EmergencyCallActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     EmergencyCallAdapter adapter;

@@ -7,23 +7,19 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.elderhelper.model.Contact;
-import com.example.elderhelper.model.Medication;
 
 import java.util.List;
 
 @Dao
-public interface EmergencyContact {
+public interface EmergencyContact <ENTITY>{
 
     @Insert
-    long insert(Contact contact);
+    long insert(ENTITY entity);
 
     @Delete
-    int delete(Contact contact);
+    int delete(ENTITY entity);
 
     @Update
-    int update(Contact update);
-
-    @Query("select * from Contact")
-    List<Contact> getAll();
+    int update(ENTITY update);
 
 }

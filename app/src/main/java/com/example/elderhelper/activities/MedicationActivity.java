@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.elderhelper.R;
 import com.example.elderhelper.adapter.MedicationAdapter;
 import com.example.elderhelper.db.ContactDB;
+import com.example.elderhelper.model.Medication;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Medication extends AppCompatActivity {
+public class MedicationActivity extends AppCompatActivity {
 
     private FloatingActionButton addMedication;
     private Button makeOrder;
@@ -38,7 +40,7 @@ public class Medication extends AppCompatActivity {
         addMedication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Medication.this, AddMeds.class);
+                Intent intent = new Intent(MedicationActivity.this, AddMedsActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,16 +48,23 @@ public class Medication extends AppCompatActivity {
         makeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent intent = new Intent(Medication.this, Order.class);
-                //startActivity(intent);
+               Intent intent = new Intent(MedicationActivity.this, OrderActivity.class);
+               startActivity(intent);
             }
         });
-
     }
-    private List<com.example.elderhelper.model.Medication> getLocalDB(){
 
-        List<com.example.elderhelper.model.Medication> medication = ContactDB.getInstance(getApplicationContext()).selectedMedsDao().getAll();
-        return medication;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setAdapter();
+    }
+
+    private List<Medication> getLocalDB(){
+
+        List<Medication> meds = new ArrayList<>();
+        meds = ContactDB.getInstance(getApplicationContext()).selectedMeds().getAll();
+        return meds;
     }
 
     private void setAdapter(){

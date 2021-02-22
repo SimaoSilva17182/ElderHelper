@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +14,7 @@ import com.example.elderhelper.R;
 import com.example.elderhelper.db.ContactDB;
 import com.example.elderhelper.model.Medication;
 
-public class AddMeds extends AppCompatActivity {
+public class AddMedsActivity extends AppCompatActivity {
 
     private EditText addmedication;
     private Button confirm;
@@ -30,7 +29,6 @@ public class AddMeds extends AppCompatActivity {
         confirm = findViewById(R.id.confirm2);
         clear = findViewById(R.id.clear);
 
-
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,21 +36,23 @@ public class AddMeds extends AppCompatActivity {
                 Medication medication = new Medication();
                 medication.setMedication(addmedication.getText().toString());
 
-                ContactDB.getInstance(getApplicationContext()).selectedMedsDao().insert(medication);
+               ContactDB.getInstance(getApplicationContext()).selectedMeds().insert(medication);
 
                 final CharSequence[] options = {"Continue to add Meds", "Make order"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddMeds.this); // this will create a pop-up dialog box that will ask the user to choose the options above
-                builder.setTitle("Do u wish to continue to add medication?");
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddMedsActivity.this); // this will create a pop-up dialog box that will ask the user to choose the options above
+                builder.setTitle("Do you wish to continue to add medication?");
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
-                        if (options[item].equals("Add Medication")) {
-                            Intent intent = new Intent(AddMeds.this, AddMeds.class);
+                        if (options[item].equals("Continue to add Meds")) {
+                            Intent intent = new Intent(AddMedsActivity.this, AddMedsActivity.class);
                             startActivity(intent);
-                        } else if (options[item].equals("Go to make order")) {
+                            finish();
+                        } else if (options[item].equals("Make order")) {
                             {
-                                Intent intent = new Intent(AddMeds.this, Medication.class);
+                                Intent intent = new Intent(AddMedsActivity.this, Medication.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }
                     }
@@ -64,7 +64,8 @@ public class AddMeds extends AppCompatActivity {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddMeds.this, AddMeds.class);
+                Intent intent = new Intent(AddMedsActivity.this, AddMedsActivity.class);
+                finish();
                 startActivity(intent);
             }
         });

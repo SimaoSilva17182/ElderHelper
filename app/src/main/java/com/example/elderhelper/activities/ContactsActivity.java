@@ -10,7 +10,6 @@ import com.example.elderhelper.adapter.ContactAdapter;
 import com.example.elderhelper.R;
 import com.example.elderhelper.model.Contact;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -25,7 +24,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Contacts extends AppCompatActivity {
+public class ContactsActivity extends AppCompatActivity {
 
     private FloatingActionButton addContact;
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -44,7 +43,7 @@ public class Contacts extends AppCompatActivity {
         addContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Contacts.this, AddContact.class);
+                Intent intent = new Intent(ContactsActivity.this, AddContactActivity.class);
                 startActivity(intent);
             }
         });
