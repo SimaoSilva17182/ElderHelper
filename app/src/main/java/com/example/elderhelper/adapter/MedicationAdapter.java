@@ -1,6 +1,7 @@
 package com.example.elderhelper.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.elderhelper.R;
+import com.example.elderhelper.activities.OrderActivity;
 import com.example.elderhelper.db.ContactDB;
 import com.example.elderhelper.model.Contact;
 import com.example.elderhelper.model.Medication;
@@ -44,12 +46,14 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Vi
 
         holder.name.setText(medication.getMedication());
 
-        if(holder.checkBox.isChecked()){
-            List<Medication> medicationList = new ArrayList<>();
-            medicationList.add(medication);
-        }
-
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, OrderActivity.class);
+                intent.putExtra("medication",medication.getMedication());
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -61,15 +65,11 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView name;
-        private CheckBox checkBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.medication_name);
-            checkBox = itemView.findViewById(R.id.checkBox);
-
-
         }
     }
 }

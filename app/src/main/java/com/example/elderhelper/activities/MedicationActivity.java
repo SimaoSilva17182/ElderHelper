@@ -45,13 +45,13 @@ public class MedicationActivity extends AppCompatActivity {
             }
         });
 
-        makeOrder.setOnClickListener(new View.OnClickListener() {
+        /*makeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                Intent intent = new Intent(MedicationActivity.this, OrderActivity.class);
                startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override
